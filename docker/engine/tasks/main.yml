@@ -1,5 +1,17 @@
 ###################################################################################################
 
-- ping:
+- name: download
+
+  get_url: url={{ docker_engine_bin_src_url    }}
+     sha256sum={{ docker_engine_bin_sha256sum  }}
+          dest={{ docker_engine_bin_dest_path  }}
+          mode={{ docker_engine_bin_dest_mode  }}
+         owner={{ docker_engine_bin_dest_owner }}
+         group={{ docker_engine_bin_dest_owner }}
+
+  tags:
+    - juno
+    - docker
+    - engine
 
 ###################################################################################################
