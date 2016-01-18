@@ -14,16 +14,28 @@ docker_engine_version: '{{ docker_engine_major }}.{{ docker_engine_minor }}.{{ d
 
 ###################################################################################################
 
-docker_engine_bin_filename : '{{ docker_engine_name }}-{{ docker_engine_version }}'
-docker_engine_bin_sha256sum: 52286a92999f003e1129422e78be3e1049f963be1888afc3c9a99d5a9af04666
+docker_engine_filename : '{{ docker_engine_name }}-{{ docker_engine_version }}'
+docker_engine_sha256sum: 52286a92999f003e1129422e78be3e1049f963be1888afc3c9a99d5a9af04666
 
-docker_engine_bin_src_base : https://get.docker.com/builds/Linux/x86_64
-docker_engine_bin_src_url  : '{{ docker_engine_bin_src_base }}/{{ docker_engine_bin_filename }}'
+docker_engine_src_base : https://get.docker.com/builds/Linux/x86_64
+docker_engine_src_url  : '{{ docker_engine_src_base }}/{{ docker_engine_filename }}'
 
-docker_engine_bin_dest_base: /bin
-docker_engine_bin_dest_path: '{{ docker_engine_bin_dest_base }}/{{ docker_engine_bin_filename }}'
-docker_engine_bin_dest_mode: '0755'
-docker_engine_bin_dest_owner: root
-docker_engine_bin_dest_group: root
+docker_engine_dest_base_path: /usr/local/bin
+docker_engine_dest_base_mode: '0755'
+docker_engine_dest_base_owner: root
+docker_engine_dest_base_group: root
+
+docker_engine_dest_path: '{{ docker_engine_dest_base_path }}/{{ docker_engine_filename }}'
+docker_engine_dest_mode: '0755'
+docker_engine_dest_owner: root
+docker_engine_dest_group: root
+
+docker_engine_link_base_path: /bin
+docker_engine_link_base_mode: '0755'
+docker_engine_link_base_owner: root
+docker_engine_link_base_group: root
+
+docker_engine_link_name: '{{ docker_engine_name }}'
+docker_engine_link_path: '{{ docker_engine_link_base_path }}/{{ docker_engine_link_name }}'
 
 ###################################################################################################

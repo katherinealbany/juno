@@ -1,13 +1,58 @@
 ###################################################################################################
 
+- name: download | base
+
+  file: dest={{ docker_engine_dest_base_path }}
+        mode={{ docker_engine_dest_base_mode  }}
+       owner={{ docker_engine_dest_base_owner }}
+       group={{ docker_engine_dest_base_group }}
+       state=directory
+
+  tags:
+    - juno
+    - docker
+    - engine
+
+###################################################################################################
+
 - name: download
 
-  get_url: url={{ docker_engine_bin_src_url    }}
-     sha256sum={{ docker_engine_bin_sha256sum  }}
-          dest={{ docker_engine_bin_dest_path  }}
-          mode={{ docker_engine_bin_dest_mode  }}
-         owner={{ docker_engine_bin_dest_owner }}
-         group={{ docker_engine_bin_dest_owner }}
+  get_url: url={{ docker_engine_src_url    }}
+     sha256sum={{ docker_engine_sha256sum  }}
+          dest={{ docker_engine_dest_path  }}
+          mode={{ docker_engine_dest_mode  }}
+         owner={{ docker_engine_dest_owner }}
+         group={{ docker_engine_dest_owner }}
+
+  register: download
+
+  tags:
+    - juno
+    - docker
+    - engine
+
+###################################################################################################
+
+- name: link | base
+
+  file: dest={{ docker_engine_link_base_path  }}
+        mode={{ docker_engine_link_base_mode  }}
+       owner={{ docker_engine_link_base_owner }}
+       group={{ docker_engine_link_base_group }}
+       state=directory
+
+  tags:
+    - juno
+    - docker
+    - engine
+
+###################################################################################################
+
+- name: link
+
+  file: src={{ docker_engine_dest_path }}
+       dest={{ docker_engine_link_path }}
+       state=link
 
   tags:
     - juno
