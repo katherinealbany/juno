@@ -2,7 +2,7 @@
 
 - name: download | base
 
-  file: dest={{ docker_engine_dest_base_path }}
+  file: dest={{ docker_engine_dest_base_path  }}
         mode={{ docker_engine_dest_base_mode  }}
        owner={{ docker_engine_dest_base_owner }}
        group={{ docker_engine_dest_base_group }}
