@@ -1,0 +1,34 @@
+###################################################################################################
+
+- name: verify | setup
+
+  assert:
+    that:
+
+      - module_setup is defined
+      - module_setup is not none
+      - module_setup
+
+  tags:
+    - juno
+    - docker
+    - engine
+    - verify
+
+###################################################################################################
+
+- name: verify | supported
+
+  assert:
+    that:
+
+      - docker_engine_platforms is iterable
+      - ansible_system in docker_engine_platforms
+
+  tags:
+    - juno
+    - docker
+    - engine
+    - verify
+
+###################################################################################################

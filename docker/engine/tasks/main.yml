@@ -1,18 +1,12 @@
 ###################################################################################################
 
-- name: verify
-
-  assert:
-    that:
-
-      - ansible_system is defined
-      - ansible_system is not none
-      - ansible_system | length > 0
+- include: verify.yml
 
   tags:
     - juno
     - docker
     - engine
+    - verify
 
 ###################################################################################################
 

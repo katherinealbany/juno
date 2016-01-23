@@ -19,6 +19,13 @@ docker_engine_sha256sum: 52286a92999f003e1129422e78be3e1049f963be1888afc3c9a99d5
 
 ###################################################################################################
 
+docker_engine_platforms:
+
+  - Linux
+  - Darwin
+
+###################################################################################################
+
 docker_engine_src_base: http://get.docker.com/builds
 docker_engine_src_arch: '{{ ansible_system }}/{{ ansible_architecture }}'
 docker_engine_src_url : '{{ docker_engine_src_base }}/{{ docker_engine_src_arch }}/{{ docker_engine_filename }}'
