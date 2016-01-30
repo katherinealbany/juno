@@ -17,13 +17,13 @@
 
 ###################################################################################################
 
-- name: verify | supported
+- name: verify | support
 
   assert:
     that:
 
-      - docker_engine_platforms is iterable
-      - ansible_system in docker_engine_platforms
+      - docker_engine_support is iterable
+      - '"{{ ansible_architecture | lower }}-{{ ansible_distribution | lower }}-{{ ansible_system | lower }}" in docker_engine_support | lower'
 
   tags:
     - juno
