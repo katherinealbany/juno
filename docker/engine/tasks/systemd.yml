@@ -1,0 +1,55 @@
+###################################################################################################
+
+- name: systemd | configure
+
+  template: src={{ docker_engine_systemd_config_src  }}
+           dest={{ docker_engine_systemd_config_dest }}
+           mode={{ docker_engine_systemd_config_mode }}
+
+  register: configure
+
+  tags:
+    - juno
+    - docker
+    - engine
+    - systemd
+
+###################################################################################################
+
+- name: systemd | reload
+
+  when: configure.changed
+
+  command: systemctl daemon-reload
+
+  tags:
+    - juno
+    - docker
+    - engine
+    - systemd
+
+###################################################################################################
+
+- name: systemd | enable
+
+  command: systemctl enable {{ docker_engine_systemd_config_name }}
+
+  tags:
+    - juno
+    - docker
+    - engine
+    - systemd
+
+###################################################################################################
+
+- name: systemd | start
+
+  command: systemctl start {{ docker_engine_systemd_config_name }}
+
+  tags:
+    - juno
+    - docker
+    - engine
+    - systemd
+
+###################################################################################################
