@@ -11,9 +11,9 @@ docker_engine_support:
 ###################################################################################################
 
 docker_engine_major    : 1
-docker_engine_minor    : 9
-docker_engine_revision : 1
-docker_engine_sha256sum: 52286a92999f003e1129422e78be3e1049f963be1888afc3c9a99d5a9af04666
+docker_engine_minor    : 10
+docker_engine_revision : 0
+docker_engine_sha256sum: a66b20423b7d849aa8ef448b98b41d18c45a30bf3fe952cc2ba4760600b18087
 
 ###################################################################################################
 
