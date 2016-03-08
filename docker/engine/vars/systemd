@@ -1,0 +1,9 @@
+###################################################################################################
+
+docker_engine_systemd_config_src : systemd.j2
+docker_engine_systemd_config_base: /etc/systemd/system
+docker_engine_systemd_config_name: '{{ docker_engine_name }}.service'
+docker_engine_systemd_config_dest: '{{ docker_engine_systemd_config_base }}/{{ docker_engine_systemd_config_name }}'
+docker_engine_systemd_config_mode: '0644'
+
+###################################################################################################

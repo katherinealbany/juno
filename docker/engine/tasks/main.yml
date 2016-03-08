@@ -73,6 +73,8 @@
 
 - include: systemd.yml
 
+  when: docker_engine_process_control == 'systemd'
+
   tags:
     - juno
     - docker
